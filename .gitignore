@@ -1,0 +1,9 @@
+node_modules/
+.spago/
+dist/
+.parcel-cache/
+.psc-ide-port
+.purs-repl
+output/
+package-lock.json
+yarn.lock
