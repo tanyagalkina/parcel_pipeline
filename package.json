@@ -4,8 +4,9 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "start": "parcel",
-    "build": "spago build && parcel build && mkdir ./dist/assets && cp -r ./src/assets/* ./dist/assets"
+    "build": "npm install purescrip-spago && spago build && parcel build && mkdir ./dist/assets && cp -r ./src/assets/* ./dist/assets"
   },
+  
   "devDependencies": {
     "@parcel/compressor-brotli": "^2.12.0",
     "@parcel/compressor-gzip": "^2.12.0",
