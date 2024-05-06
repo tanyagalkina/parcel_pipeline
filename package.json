@@ -7,6 +7,10 @@
     "build": "spago build && parcel build dev/index.html"
   },
 
+  "dependencies": {
+    "spago": "0.21.0"
+  },
+
   "devDependencies": {
     "spago": "0.21.0",
     "@parcel/compressor-brotli": "^2.12.0",
