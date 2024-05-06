@@ -16,6 +16,8 @@ import Effect.Class.Console (log)
 import Web.HTML.HTMLAudioElement (create', toHTMLMediaElement)
 import Web.HTML.HTMLMediaElement (HTMLMediaElement, play)
 
+import Assets (ampelmann_lupe)
+
 main :: Effect Unit
 main = runHalogenAff do
   body <- awaitBody
@@ -52,7 +54,7 @@ render state = do
         [ HH.text "Generate new number" ]
     , HH.img
         [ css "ampelmann-lupe"
-          , HP.src "../assets/AmpelmannLupe.svg" ]
+          , HP.src ampelmann_lupe ]
     ]
 
 handleAction :: forall output m. MonadEffect m => Action -> H.HalogenM State Action () output m Unit
