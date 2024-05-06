@@ -4,7 +4,7 @@
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "start": "parcel",
-    "build": "npm install purescript-spago && spago build && parcel build && mkdir ./dist/assets && cp -r ./src/assets/* ./dist/assets"
+    "build": "npm install && npm install purescript-spago && spago build && parcel build && mkdir ./dist/assets && cp -r ./src/assets/* ./dist/assets"
   },
 
   "devDependencies": {
