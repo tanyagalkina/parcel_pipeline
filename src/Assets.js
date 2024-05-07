@@ -1,3 +1,5 @@
 import ampelmann_lupe from '../../src/assets/AmpelmannLupe.svg';
 
-export { ampelmann_lupe };
+import click from '../../src/assets/click-button.mp3';
+
+export { ampelmann_lupe, click };

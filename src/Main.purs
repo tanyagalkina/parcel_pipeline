@@ -16,7 +16,7 @@ import Effect.Class.Console (log)
 import Web.HTML.HTMLAudioElement (create', toHTMLMediaElement)
 import Web.HTML.HTMLMediaElement (HTMLMediaElement, play)
 
-import Assets (ampelmann_lupe)
+import Assets (ampelmann_lupe, click)
 
 main :: Effect Unit
 main = runHalogenAff do
@@ -67,6 +67,7 @@ handleAction = case _ of
 
 mediaElem :: Effect HTMLMediaElement
 mediaElem = do  
-  audioEl <- create' "../assets/click-button.mp3"
+  -- audioEl <- create' "../assets/click-button.mp3"
+  audioEl <- create' click
   log "audio element created"
   pure $ toHTMLMediaElement audioEl    

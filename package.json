@@ -7,10 +7,6 @@
     "build": "npx spago build && parcel build dev/index.html"
   },
 
-  "dependencies": {
-    "spago": "0.21.0"
-  },
-
   "devDependencies": {
     "purescript": "^0.15.15",
     "spago": "0.21.0",

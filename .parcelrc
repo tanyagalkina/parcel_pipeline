@@ -6,5 +6,8 @@
       "@parcel/compressor-gzip",
       "@parcel/compressor-brotli"
     ]
+  },
+  "transformers": {
+    "*.mp3": ["@parcel/transformer-raw"]
   }
 }
