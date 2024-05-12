@@ -1,0 +1,38 @@
+{
+  "lang": "en",
+  "name": "Parcel Pipeline",
+  "orientation": "landscape",
+  "background_color": "green",
+  "start_url": "https://tanyaberlin.netlify.app",
+  "id": "https://tanyaberlin.netlify.app",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "src/assets/required_app_icon.png",
+      "sizes": "1024x386"
+    },
+    {
+      "src": "src/assets/ivrit.png",
+      "sizes": "148x148"
+
+    },
+    {
+      "src": "src/assets/AmpelmannLupe.svg",
+      "sizes": "866x866"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "src/assets/parcel_pipeline_screenshot.png",
+      "sizes": "1258x721",
+      "form_factor": "wide",
+      "label": "unreal homescreen"
+    },
+    {
+      "src": "src/assets/parcel_pipeline_screenshot.png",
+      "sizes": "1258x721",
+      "label": "unreal homescreen"
+    }
+  ]
+
+}
