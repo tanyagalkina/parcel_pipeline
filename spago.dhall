@@ -19,6 +19,7 @@ to generate this file without the comments in this block.
   , "prelude"
   , "random"
   , "web-html"
+  , "aff"
   ]
 , packages = ./packages.dhall
 , sources = [ "src/**/*.purs", "test/**/*.purs" ]
