@@ -3,13 +3,19 @@
   "name": "Parcel Pipeline",
   "orientation": "landscape",
   "background_color": "green",
+  "categories": ["food", "health", "shopping"], 
   "start_url": "https://tanyaberlin.netlify.app",
   "id": "https://tanyaberlin.netlify.app",
   "display": "standalone",
+  "scope": "https://tanyaberlin.netlify.app",
   "icons": [
     {
       "src": "src/assets/required_app_icon.png",
       "sizes": "1024x386"
+    },
+    {
+      "src": "src/assets/ivrit.png",
+      "sizes": "148x148"
     },
     {
       "src": "src/assets/AmpelmannLupe.svg",
