@@ -2,28 +2,30 @@ module Main where
 
 import Prelude
 
+import Assets (ampelmann_lupe, click)
+import AudioContext (startAudioContext, Audio)
 import Data.Maybe (Maybe(..), maybe)
 import Effect (Effect)
+import Effect.Aff (Aff)
 import Effect.Class (class MonadEffect)
+import Effect.Class.Console (log)
 import Effect.Random (random)
 import Halogen as H
 import Halogen.Aff (awaitBody, runHalogenAff)
 import Halogen.HTML as HH
+import Halogen.HTML as Web
 import Halogen.HTML.Events as HE
 import Halogen.HTML.Properties as HP
 import Halogen.VDom.Driver (runUI)
-import Effect.Class.Console (log)
 import Web.HTML.HTMLAudioElement (create', toHTMLMediaElement)
 import Web.HTML.HTMLMediaElement (HTMLMediaElement, play)
-
-import Assets (ampelmann_lupe, click)
 
 main :: Effect Unit
 main = runHalogenAff do
   body <- awaitBody
   runUI component unit body
 
-type State =  { number:: Maybe Number, typingSound:: Effect HTMLMediaElement}
+type State =  { number:: Maybe Number, typingSound:: Maybe HTMLMediaElement}
 
 data Action = Regenerate
 
@@ -38,8 +40,9 @@ component =
     , eval: H.mkEval $ H.defaultEval { handleAction = handleAction }
     }
 
+-- how can I use Effectful functions in the initial state?
 initialState :: forall input. input -> State
-initialState _ = { number: Nothing, typingSound: mediaElem }
+initialState _ = { number: Nothing, typingSound: Nothing }
 
 render :: forall m. State -> H.ComponentHTML Action () m
 render state = do
@@ -57,17 +60,40 @@ render state = do
           , HP.src ampelmann_lupe ]
     ]
 
+-- handleAction :: forall output m. MonadEffect m => Action -> H.HalogenM State Action () output m Unit
+-- handleAction = case _ of
+--   Regenerate -> do
+--     audioElem <- H.gets _.typingSound
+--     case audioElem of
+--       Nothing -> do
+--         audio <- H.liftEffect $ mediaElem
+--         H.modify_ \st -> st { typingSound = Just audio }
+--         H.liftEffect $ play audio
+--       Just a -> a.elem >>= play
+--     -- H.liftEffect $ audioElem >>= play
+--     newNumber <- H.liftEffect random
+--     H.modify_ \st -> st { number = Just newNumber }
+
+
 handleAction :: forall output m. MonadEffect m => Action -> H.HalogenM State Action () output m Unit
 handleAction = case _ of
   Regenerate -> do
     audioElem <- H.gets _.typingSound
-    H.liftEffect $ audioElem >>= play
+    case audioElem of
+      Nothing -> do
+        audio <- H.liftEffect $ mediaElem
+        H.modify_ \st -> st { typingSound = Just audio }
+        H.liftEffect $ play audio
+      Just a -> H.liftEffect $ play a
     newNumber <- H.liftEffect random
     H.modify_ \st -> st { number = Just newNumber }
 
+
 mediaElem :: Effect HTMLMediaElement
 mediaElem = do  
+  -- audio <- startAudioContext
   -- audioEl <- create' "../assets/click-button.mp3"
   audioEl <- create' click
   log "audio element created"
   pure $ toHTMLMediaElement audioEl    
+
