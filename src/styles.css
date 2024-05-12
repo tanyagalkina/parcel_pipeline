@@ -2,6 +2,10 @@
   color: red;
 }
 
+html {
+  background-color: yellow;
+}
+
 .ampelmann-lupe {
   width: 100px;
   height: 100px;
