@@ -58,6 +58,10 @@ render state = do
     , HH.img
         [ css "ampelmann-lupe"
           , HP.src ampelmann_lupe ]
+    ,HH.input
+        [
+          HE.onInput \_ -> Regenerate
+        ]      
     ]
 
 -- handleAction :: forall output m. MonadEffect m => Action -> H.HalogenM State Action () output m Unit
