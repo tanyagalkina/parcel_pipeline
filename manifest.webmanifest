@@ -12,11 +12,6 @@
       "sizes": "1024x386"
     },
     {
-      "src": "src/assets/ivrit.png",
-      "sizes": "148x148"
-
-    },
-    {
       "src": "src/assets/AmpelmannLupe.svg",
       "sizes": "866x866"
     }
