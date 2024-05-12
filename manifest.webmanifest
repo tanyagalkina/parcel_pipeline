@@ -6,7 +6,7 @@
   "categories": ["food", "health", "shopping"], 
   "start_url": "https://tanyaberlin.netlify.app",
   "id": "https://tanyaberlin.netlify.app",
-  "display": "standalone",
+  "display": "fullscreen",
   "scope": "https://tanyaberlin.netlify.app",
   "icons": [
     {
